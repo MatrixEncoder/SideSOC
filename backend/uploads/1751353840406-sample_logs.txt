@@ -1,0 +1,28 @@
+# Sample Security Log Entries
+
+# Normal activity
+2025-06-29T10:00:00Z [INFO] User 'admin' logged in successfully from 192.168.1.100
+2025-06-29T10:01:23Z [INFO] User 'johndoe' accessed file 'quarterly_report.pdf'
+2025-06-29T10:15:45Z [INFO] System backup completed successfully
+
+# Potential security events
+2025-06-29T10:30:12Z [WARNING] Multiple failed login attempts for user 'admin' from 192.168.1.105
+2025-06-29T10:30:15Z [WARNING] Multiple failed login attempts for user 'admin' from 192.168.1.105
+2025-06-29T10:30:18Z [WARNING] Multiple failed login attempts for user 'admin' from 192.168.1.105
+2025-06-29T10:30:21Z [ALERT] Account 'admin' locked due to too many failed login attempts
+
+# Suspicious activity
+2025-06-29T11:05:33Z [SECURITY] User 'guest' attempted to access restricted directory '/etc/passwd'
+2025-06-29T11:07:21Z [SECURITY] Unusual outbound connection to 45.33.32.156:4444 from internal host 192.168.1.150
+
+# System events
+2025-06-29T12:30:00Z [INFO] System update completed. Installed security patches: 5
+2025-06-29T12:35:22Z [ERROR] Disk space low on /var/log (85% used)
+
+# Network activity
+2025-06-29T13:45:10Z [NETWORK] Port scan detected from 198.51.100.42
+2025-06-29T13:45:15Z [NETWORK] Blocked connection attempt to restricted port 22 from 198.51.100.42
+
+# Application logs
+2025-06-29T14:20:05Z [WEB] SQL injection attempt detected in query parameter 'id'
+2025-06-29T14:21:30Z [WEB] XSS attack blocked in form field 'comment'

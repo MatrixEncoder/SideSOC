@@ -1,0 +1,9 @@
+2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg="Invalid password"
+2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg="Invalid password"
+2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg="Invalid password"
+2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg="Invalid password"
+2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd="sudo /bin/bash" result=DENIED
+2025-06-28 13:05:35 PRIV_ESC host=workstation-05 user=jdoe cmd="sudo /bin/bash" result=DENIED
+2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd="powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA=="
+2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd="powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA=="
+2025-06-28 13:15:00 NETWORK_ALERT src=10.0.0.5 event="unusual traffic detected"
