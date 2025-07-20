@@ -185,9 +185,35 @@ function App() {
                     </div>
                   </div>
                   
-                  {incidents.map((incident) => (
-                    <IncidentReport key={incident.id} report={incident} />
-                  ))}
+                  {incidents.map((incident) => {
+                    // Convert the incident to match BackendIncidentReport type
+                    const backendCompatibleIncident: any = {
+                      ...incident,
+                      // Convert mitre_mapping
+                      mitre_mapping: incident.mitre_mapping ? {
+                        tactic: {
+                          id: (incident.mitre_mapping as any).tactic_id || '',
+                          name: incident.mitre_mapping.tactic,
+                          reference: ''
+                        },
+                        technique: {
+                          id: incident.mitre_mapping.technique_id,
+                          name: incident.mitre_mapping.technique_name,
+                          reference: '',
+                          tactics: [incident.mitre_mapping.tactic]
+                        },
+                        description: incident.mitre_mapping.description
+                      } : undefined,
+                      // Convert affected_assets
+                      affected_assets: incident.affected_assets?.map(asset => ({
+                        id: (asset as any).id || `${asset.type}-${Math.random().toString(36).substr(2, 9)}`,
+                        type: asset.type,
+                        value: (asset as any).name || (asset as any).value || 'Unknown',
+                        risk_level: (asset as any).risk_level || 'medium'
+                      }))
+                    };
+                    return <IncidentReport key={incident.id} report={backendCompatibleIncident} />;
+                  })}
                 </div>
               )}
 

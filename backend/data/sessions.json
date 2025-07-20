@@ -2110,5 +2110,1130 @@
       }
     ],
     "completedAt": "2025-07-02T09:08:53.120Z"
+  },
+  "d2530563-efdd-4c22-9f13-dde56fd54d73": {
+    "id": "d2530563-efdd-4c22-9f13-dde56fd54d73",
+    "filename": "sam_text2.txt",
+    "filePath": "C:\\SideSOC\\backend\\uploads\\1751698589926-sam_text2.txt",
+    "status": "completed",
+    "createdAt": "2025-07-05T06:56:29.928Z",
+    "updatedAt": "2025-07-05T06:56:34.882Z",
+    "startedAt": "2025-07-05T06:56:30.518Z",
+    "incidents": [
+      {
+        "id": "INC-1751698594376-r8ss9r47x",
+        "title": "Brute Force Attack Detected",
+        "summary": "Multiple failed authentication attempts detected (4 events). Potential brute force attack against user accounts.",
+        "severity": "high",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "description": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "description": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "description": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "description": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "source": "192.168.1.101"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.101",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "high"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Credential Access",
+          "technique_id": "T1110",
+          "technique_name": "Brute Force",
+          "description": "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained."
+        },
+        "recommendations": [
+          "Immediately block the source IP addresses involved in the attack",
+          "Force password reset for all affected user accounts",
+          "Implement account lockout policies to prevent future brute force attempts",
+          "Enable multi-factor authentication for all user accounts",
+          "Monitor for additional suspicious activity from related IP ranges"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "source_ip": "192.168.1.101",
+            "username": "jdoe",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r"
+          }
+        ],
+        "created_at": "2025-07-05T06:56:34.377Z"
+      },
+      {
+        "id": "INC-1751698594377-9t9f85tei",
+        "title": "Privilege Escalation Attempt",
+        "summary": "Unauthorized privilege escalation attempts detected (6 events). User attempting to gain elevated system access.",
+        "severity": "critical",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "description": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "description": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "description": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "description": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "source": "192.168.1.101"
+          },
+          {
+            "timestamp": "2025-06-28 13:05:15",
+            "description": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r",
+            "source": "workstation-05"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.101",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "hostname",
+            "value": "workstation-05",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "hostname",
+            "value": "workstation-05",
+            "risk_level": "critical"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Privilege Escalation",
+          "technique_id": "T1548",
+          "technique_name": "Abuse Elevation Control Mechanism",
+          "description": "Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions."
+        },
+        "recommendations": [
+          "Immediately suspend the affected user account pending investigation",
+          "Review and audit all recent activities for this user account",
+          "Check for any successful privilege escalations in system logs",
+          "Verify the legitimacy of sudo/admin access for this user role",
+          "Implement additional monitoring for privilege escalation attempts"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "source_ip": "192.168.1.101",
+            "username": "jdoe",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:05:15",
+            "source_ip": null,
+            "username": "jdoe",
+            "hostname": "workstation-05",
+            "event_type": "privilege_escalation",
+            "message": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r"
+          }
+        ],
+        "created_at": "2025-07-05T06:56:34.377Z"
+      },
+      {
+        "id": "INC-1751698594377-ospoy1neb",
+        "title": "Suspicious Command Execution",
+        "summary": "Suspicious command execution detected (2 events). Potentially malicious scripts or encoded commands identified.",
+        "severity": "medium",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:10:10",
+            "description": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBu...",
+            "source": "desktop-07"
+          },
+          {
+            "timestamp": "2025-06-28 13:10:12",
+            "description": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBu...",
+            "source": "desktop-07"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "username",
+            "value": "msmith",
+            "risk_level": "medium"
+          },
+          {
+            "type": "hostname",
+            "value": "desktop-07",
+            "risk_level": "medium"
+          },
+          {
+            "type": "username",
+            "value": "msmith",
+            "risk_level": "medium"
+          },
+          {
+            "type": "hostname",
+            "value": "desktop-07",
+            "risk_level": "medium"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Defense Evasion",
+          "technique_id": "T1027",
+          "technique_name": "Obfuscated Files or Information",
+          "description": "Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents."
+        },
+        "recommendations": [
+          "Isolate affected systems from the network immediately",
+          "Perform full malware scan on all affected systems",
+          "Decode and analyze any Base64 or encoded payloads",
+          "Block communication to any external IPs identified",
+          "Review PowerShell execution policies and logging"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:10:10",
+            "source_ip": null,
+            "username": "msmith",
+            "hostname": "desktop-07",
+            "event_type": "general",
+            "message": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r",
+            "severity": "medium",
+            "raw_log": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:10:12",
+            "source_ip": null,
+            "username": "msmith",
+            "hostname": "desktop-07",
+            "event_type": "general",
+            "message": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r",
+            "severity": "medium",
+            "raw_log": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r"
+          }
+        ],
+        "created_at": "2025-07-05T06:56:34.377Z"
+      }
+    ],
+    "completedAt": "2025-07-05T06:56:34.882Z"
+  },
+  "3a1df882-e5e0-46aa-a381-4f3ccc8ff33d": {
+    "id": "3a1df882-e5e0-46aa-a381-4f3ccc8ff33d",
+    "filename": "sam_text2.txt",
+    "filePath": "C:\\SideSOC\\backend\\uploads\\1751702468859-sam_text2.txt",
+    "status": "completed",
+    "createdAt": "2025-07-05T08:01:08.865Z",
+    "updatedAt": "2025-07-05T08:01:38.769Z",
+    "startedAt": "2025-07-05T08:01:34.418Z",
+    "incidents": [
+      {
+        "id": "INC-1751702498256-o5zqp3diz",
+        "title": "Brute Force Attack Detected",
+        "summary": "Multiple failed authentication attempts detected (4 events). Potential brute force attack against user accounts.",
+        "severity": "high",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "description": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "description": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "description": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "description": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "source": "192.168.1.101"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.101",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "high"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Credential Access",
+          "technique_id": "T1110",
+          "technique_name": "Brute Force",
+          "description": "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained."
+        },
+        "recommendations": [
+          "Immediately block the source IP addresses involved in the attack",
+          "Force password reset for all affected user accounts",
+          "Implement account lockout policies to prevent future brute force attempts",
+          "Enable multi-factor authentication for all user accounts",
+          "Monitor for additional suspicious activity from related IP ranges"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "source_ip": "192.168.1.101",
+            "username": "jdoe",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r"
+          }
+        ],
+        "created_at": "2025-07-05T08:01:38.257Z"
+      },
+      {
+        "id": "INC-1751702498257-pw0m9s6fz",
+        "title": "Privilege Escalation Attempt",
+        "summary": "Unauthorized privilege escalation attempts detected (6 events). User attempting to gain elevated system access.",
+        "severity": "critical",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "description": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "description": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "description": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "description": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "source": "192.168.1.101"
+          },
+          {
+            "timestamp": "2025-06-28 13:05:15",
+            "description": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r",
+            "source": "workstation-05"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.101",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "hostname",
+            "value": "workstation-05",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "hostname",
+            "value": "workstation-05",
+            "risk_level": "critical"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Privilege Escalation",
+          "technique_id": "T1548",
+          "technique_name": "Abuse Elevation Control Mechanism",
+          "description": "Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions."
+        },
+        "recommendations": [
+          "Immediately suspend the affected user account pending investigation",
+          "Review and audit all recent activities for this user account",
+          "Check for any successful privilege escalations in system logs",
+          "Verify the legitimacy of sudo/admin access for this user role",
+          "Implement additional monitoring for privilege escalation attempts"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "source_ip": "192.168.1.101",
+            "username": "jdoe",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:05:15",
+            "source_ip": null,
+            "username": "jdoe",
+            "hostname": "workstation-05",
+            "event_type": "privilege_escalation",
+            "message": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r"
+          }
+        ],
+        "created_at": "2025-07-05T08:01:38.257Z"
+      },
+      {
+        "id": "INC-1751702498257-ak8yafhho",
+        "title": "Suspicious Command Execution",
+        "summary": "Suspicious command execution detected (2 events). Potentially malicious scripts or encoded commands identified.",
+        "severity": "medium",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:10:10",
+            "description": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBu...",
+            "source": "desktop-07"
+          },
+          {
+            "timestamp": "2025-06-28 13:10:12",
+            "description": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBu...",
+            "source": "desktop-07"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "username",
+            "value": "msmith",
+            "risk_level": "medium"
+          },
+          {
+            "type": "hostname",
+            "value": "desktop-07",
+            "risk_level": "medium"
+          },
+          {
+            "type": "username",
+            "value": "msmith",
+            "risk_level": "medium"
+          },
+          {
+            "type": "hostname",
+            "value": "desktop-07",
+            "risk_level": "medium"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Defense Evasion",
+          "technique_id": "T1027",
+          "technique_name": "Obfuscated Files or Information",
+          "description": "Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents."
+        },
+        "recommendations": [
+          "Isolate affected systems from the network immediately",
+          "Perform full malware scan on all affected systems",
+          "Decode and analyze any Base64 or encoded payloads",
+          "Block communication to any external IPs identified",
+          "Review PowerShell execution policies and logging"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:10:10",
+            "source_ip": null,
+            "username": "msmith",
+            "hostname": "desktop-07",
+            "event_type": "general",
+            "message": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r",
+            "severity": "medium",
+            "raw_log": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:10:12",
+            "source_ip": null,
+            "username": "msmith",
+            "hostname": "desktop-07",
+            "event_type": "general",
+            "message": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r",
+            "severity": "medium",
+            "raw_log": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r"
+          }
+        ],
+        "created_at": "2025-07-05T08:01:38.257Z"
+      }
+    ],
+    "completedAt": "2025-07-05T08:01:38.769Z"
+  },
+  "5eedc280-78a9-4e33-8600-e30fbe1a5a2a": {
+    "id": "5eedc280-78a9-4e33-8600-e30fbe1a5a2a",
+    "filename": "sam_text2.txt",
+    "filePath": "C:\\SideSOC\\backend\\uploads\\1752250236373-sam_text2.txt",
+    "status": "completed",
+    "createdAt": "2025-07-11T16:10:36.378Z",
+    "updatedAt": "2025-07-11T16:10:41.430Z",
+    "startedAt": "2025-07-11T16:10:37.090Z",
+    "incidents": [
+      {
+        "id": "INC-1752250240920-c87calrr2",
+        "title": "Brute Force Attack Detected",
+        "summary": "Multiple failed authentication attempts detected (4 events). Potential brute force attack against user accounts.",
+        "severity": "high",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "description": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "description": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "description": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "description": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "source": "192.168.1.101"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "high"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.101",
+            "risk_level": "high"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "high"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Credential Access",
+          "technique_id": "T1110",
+          "technique_name": "Brute Force",
+          "description": "Adversaries may use brute force techniques to gain access to accounts when passwords are unknown or when password hashes are obtained."
+        },
+        "recommendations": [
+          "Immediately block the source IP addresses involved in the attack",
+          "Force password reset for all affected user accounts",
+          "Implement account lockout policies to prevent future brute force attempts",
+          "Enable multi-factor authentication for all user accounts",
+          "Monitor for additional suspicious activity from related IP ranges"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "source_ip": "192.168.1.101",
+            "username": "jdoe",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "severity": "high",
+            "raw_log": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r"
+          }
+        ],
+        "created_at": "2025-07-11T16:10:40.921Z"
+      },
+      {
+        "id": "INC-1752250240921-o85t0t5xj",
+        "title": "Privilege Escalation Attempt",
+        "summary": "Unauthorized privilege escalation attempts detected (6 events). User attempting to gain elevated system access.",
+        "severity": "critical",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "description": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "description": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "description": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "source": "192.168.1.100"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "description": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "source": "192.168.1.101"
+          },
+          {
+            "timestamp": "2025-06-28 13:05:15",
+            "description": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r",
+            "source": "workstation-05"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.100",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "admin",
+            "risk_level": "critical"
+          },
+          {
+            "type": "ip",
+            "value": "192.168.1.101",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "hostname",
+            "value": "workstation-05",
+            "risk_level": "critical"
+          },
+          {
+            "type": "username",
+            "value": "jdoe",
+            "risk_level": "critical"
+          },
+          {
+            "type": "hostname",
+            "value": "workstation-05",
+            "risk_level": "critical"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Privilege Escalation",
+          "technique_id": "T1548",
+          "technique_name": "Abuse Elevation Control Mechanism",
+          "description": "Adversaries may circumvent mechanisms designed to control elevate privileges to gain higher-level permissions."
+        },
+        "recommendations": [
+          "Immediately suspend the affected user account pending investigation",
+          "Review and audit all recent activities for this user account",
+          "Check for any successful privilege escalations in system logs",
+          "Verify the legitimacy of sudo/admin access for this user role",
+          "Implement additional monitoring for privilege escalation attempts"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:01:02",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:02 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:04",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:04 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:01:06",
+            "source_ip": "192.168.1.100",
+            "username": "admin",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:01:06 AUTH_FAILURE src=192.168.1.100 user=admin msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:02:10",
+            "source_ip": "192.168.1.101",
+            "username": "jdoe",
+            "hostname": null,
+            "event_type": "authentication",
+            "message": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:02:10 AUTH_FAILURE src=192.168.1.101 user=jdoe msg=\"Invalid password\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:05:15",
+            "source_ip": null,
+            "username": "jdoe",
+            "hostname": "workstation-05",
+            "event_type": "privilege_escalation",
+            "message": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r",
+            "severity": "critical",
+            "raw_log": "2025-06-28 13:05:15 PRIV_ESC host=workstation-05 user=jdoe cmd=\"sudo /bin/bash\" result=DENIED\r"
+          }
+        ],
+        "created_at": "2025-07-11T16:10:40.921Z"
+      },
+      {
+        "id": "INC-1752250240921-ol3wgccs5",
+        "title": "Suspicious Command Execution",
+        "summary": "Suspicious command execution detected (2 events). Potentially malicious scripts or encoded commands identified.",
+        "severity": "medium",
+        "timeline": [
+          {
+            "timestamp": "2025-06-28 13:10:10",
+            "description": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBu...",
+            "source": "desktop-07"
+          },
+          {
+            "timestamp": "2025-06-28 13:10:12",
+            "description": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBu...",
+            "source": "desktop-07"
+          }
+        ],
+        "affected_assets": [
+          {
+            "type": "username",
+            "value": "msmith",
+            "risk_level": "medium"
+          },
+          {
+            "type": "hostname",
+            "value": "desktop-07",
+            "risk_level": "medium"
+          },
+          {
+            "type": "username",
+            "value": "msmith",
+            "risk_level": "medium"
+          },
+          {
+            "type": "hostname",
+            "value": "desktop-07",
+            "risk_level": "medium"
+          }
+        ],
+        "mitre_mapping": {
+          "tactic": "Defense Evasion",
+          "technique_id": "T1027",
+          "technique_name": "Obfuscated Files or Information",
+          "description": "Adversaries may attempt to make an executable or file difficult to discover or analyze by encrypting, encoding, or otherwise obfuscating its contents."
+        },
+        "recommendations": [
+          "Isolate affected systems from the network immediately",
+          "Perform full malware scan on all affected systems",
+          "Decode and analyze any Base64 or encoded payloads",
+          "Block communication to any external IPs identified",
+          "Review PowerShell execution policies and logging"
+        ],
+        "evidence": [
+          {
+            "timestamp": "2025-06-28 13:10:10",
+            "source_ip": null,
+            "username": "msmith",
+            "hostname": "desktop-07",
+            "event_type": "general",
+            "message": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r",
+            "severity": "medium",
+            "raw_log": "2025-06-28 13:10:10 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r"
+          },
+          {
+            "timestamp": "2025-06-28 13:10:12",
+            "source_ip": null,
+            "username": "msmith",
+            "hostname": "desktop-07",
+            "event_type": "general",
+            "message": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r",
+            "severity": "medium",
+            "raw_log": "2025-06-28 13:10:12 PROC_CREATE host=desktop-07 user=msmith cmd=\"powershell.exe -EncodedCommand SQBuAHYAbwBrAGUALQBXAGUAYgBSAGUAcQB1AGUAcwB0AA==\"\r"
+          }
+        ],
+        "created_at": "2025-07-11T16:10:40.921Z"
+      }
+    ],
+    "completedAt": "2025-07-11T16:10:41.430Z"
   }
 }
